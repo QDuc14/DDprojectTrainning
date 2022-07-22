@@ -1,15 +1,15 @@
 <%
 /*=========================================================
 *Copyright(c) 2022 CyberLogitec
-*@FileName : CLV_PRT_0003.jsp
-*@FileTitle : 
-*Open Issues :
-*Change history :
-*@LastModifyDate : 2022.07.21
-*@LastModifier :
-*@LastVersion : 1.0
-* 2022.07.14
-* 1.0 Creation
+ *@FileName : CLVCLL_PRT_0003.java
+ *@FileTitle : Money Management
+ *Open Issues :
+ *Change history :
+ *@LastModifyDate : 2022.07.14
+ *@LastModifier : 
+ *@LastVersion : 1.0
+ * 2022.07.10 
+ * 1.0 Creation
 =========================================================*/
 %>
 
@@ -54,7 +54,6 @@
 		loadPage();
 	}
 </script>
-<script>language="javascript" type="text/javascript" src="apps/opus/esm/CoMessage.js"</script>
 <form name="form">
 	<input type="hidden" name="f_cmd">
 	<input type="hidden" name="pagerows">
@@ -95,6 +94,7 @@
 						<col width="55px">
 						<col width="*" />
 					</colgroup>
+					<tr class="h23">
 						<th>Year Month</th>
 						<td><input type="text" style="width: 80px" class="input1" dataformat="ym" maxlength="7" name="fm_acct_yrmon" value="" id="fm_acct_yrmon"  /><!--  
 							--><button type="button" class="btn_left" name="btn_vvd_from_back" id="btn_vvd_from_back"></button><!--  
@@ -115,6 +115,7 @@
 						<td>
 							<script type="text/javascript">ComComboObject('s_trd_cd', 1, 100, 1, 0);</script>
 						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -128,19 +129,22 @@
                 <script type="text/javascript">ComTabObject('tab1')</script>
             </div>
             
-            <!-- opus_design_grid(S) -->
-            <div class="opus_design_grid" name="tabLayer" id="tabLayer">
-            	<script language="javascript">ComSheetObject('sheet1');</script>
-            </div>
-            <!-- op us_design_grid(E) -->
+            
+                <!-- opus_design_grid(S) -->
+                <div class="opus_design_grid" name="tabLayer" id="tabLayer">
+                	<script language="javascript">ComSheetObject('sheet1');</script>
+                </div>
+                <!-- op us_design_grid(E) -->
          	
-            <!-- opus_design_grid(S) -->
-            <div class="opus_design_grid" name="tabLayer" id="tabLayer">
-               	<script language="javascript">ComSheetObject('sheet2');</script>
-            </div>
-            <!-- opus_design_grid(E) -->
+            
+            
+                <!-- opus_design_grid(S) -->
+                <div class="opus_design_grid" name="tabLayer" id="tabLayer">
+                	<script language="javascript">ComSheetObject('sheet2');</script>
+                </div>
+                <!-- opus_design_grid(E) -->
             
         </div>
       
-    <!-- wrap_result(E) -->
+      <!-- wrap_result(E) -->
 </form>
