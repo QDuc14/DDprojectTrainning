@@ -194,9 +194,15 @@
     
     
     // Check duplicated
+    /**
+	 * [sheet1_OnChange] to check duplicate<br>
+	 * 
+	 * @param sheetObj
+	 * @param Row
+	 * @param Col
+	 */
      function sheet1_OnChange(sheetObj,Row,Col){
-//    	 if(Col == 2){
-			var code=sheetObj.GetCellValue(sheetObj.GetSelectRow(), "err_msg_cd");
+    	 	var code=sheetObj.GetCellValue(sheetObj.GetSelectRow(), "err_msg_cd");
     	    for(var int=1; int < sheetObj.RowCount(); int++) {
 			var orlcode=sheetObj.GetCellValue(int, "err_msg_cd");
 			/* If it is null, there is no need to compare it to the self */
@@ -207,10 +213,18 @@
     				 return;
     			 }
     		 }
-//    	 }
      }
 	/* 개발자 작업  끝 */
      //handling event after search
+     /**
+ 	 * [처리대상] 정보를 [행위] 합니다.<br>
+ 	 * 
+ 	 * @param ErrMsgVO errMsgVO
+ 	 * @return List<ErrMsgVO>
+ 	 * @exception DAOException
+ 	 */
      function sheet1_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) { 
      	ComOpenWait(false);
      }
+     
+    
