@@ -54,7 +54,6 @@
 		loadPage();
 	}
 </script>
-<script>language="javascript" type="text/javascript" src="apps/opus/esm/CoMessage.js"</script>
 <form name="form">
 	<input type="hidden" name="f_cmd">
 	<input type="hidden" name="pagerows">
