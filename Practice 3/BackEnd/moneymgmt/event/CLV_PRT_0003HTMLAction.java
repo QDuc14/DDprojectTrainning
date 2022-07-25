@@ -13,12 +13,6 @@
 package com.clt.apps.opus.esm.clv.practice3.moneymgmt.event;
 
 import javax.servlet.http.HttpServletRequest;
-
-
-
-
-
-
 import weblogic.jspc;
 
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
@@ -31,10 +25,21 @@ import com.clt.framework.core.layer.event.EventResponse;
 import com.clt.framework.support.controller.HTMLActionSupport;
 import com.clt.framework.support.controller.html.FormCommand;
 
+/**
+ * HTTP Parser<br>
+ * - Parsing the value of the HTML DOM object sent to the server through the com.clt.apps.opus.esm.clv.doutraining.moneymgmt screen as a Java variable<br>
+ * - Parsing information is converted into an event, put in a request, and requested to be executed by MoneyMgmtSC<br>
+ * - EventResponse that transmits execution result from MoneyMgmtSC to View (JSP) is set in the request<br>
+ * @author duc
+ * @see moneymgmtEvent 참조
+ * @since J2EE 1.6
+ */
 public class CLV_PRT_0003HTMLAction extends HTMLActionSupport{
 
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * [CLV_PRT_0003HTMLAction] generation
+	 */
 	public CLV_PRT_0003HTMLAction() {}
 	/**
 	 * Parsing the HTML DOM object's value as a java variable

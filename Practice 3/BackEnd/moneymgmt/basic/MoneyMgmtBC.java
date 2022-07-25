@@ -18,6 +18,13 @@ import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.core.layer.event.EventException;
 
+/**
+ * ALPS-Moneymgmt Business Logic Command Interface<br>
+ * - Interface to business logic for ALPS-Moneymgmt<br>
+ *
+ * @author duc
+ * @since J2EE 1.6
+ */
 public interface MoneyMgmtBC {
 	/**
 	 * [searchMoneySummaryMgmt] to retrieve data

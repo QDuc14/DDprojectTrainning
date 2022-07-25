@@ -16,6 +16,15 @@ import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.support.layer.event.EventSupport;
 
+/**
+ * ESM_DOU_0108 for PDTO(Data Transfer Object including Parameters)<br>
+ * - Created from ESM_DOU_0108HTMLAction<br>
+ * - Used as PDTO delivered to ServiceCommand Layer<br>
+ *
+ * @author duc
+ * @see ESM_DOU_0108HTMLAction refer
+ * @since J2EE 1.6
+ */
 public class ClvPrt0003Event extends EventSupport {
 
 	private static final long serialVersionUID = 1L;
@@ -30,20 +39,23 @@ public class ClvPrt0003Event extends EventSupport {
 	 */
 	public ClvPrt0003Event() {}
 	/**
-	 * 
+	 * [getSummaryVO]
+	 *
 	 * @return SummaryVO
 	 */
 	public SummaryVO getSummaryVO() {
 		return summaryVO;
 	}
 	/**
-	 * 
+	 * [setSummaryVO]
+	 *
 	 * @param summaryVO
 	 */
 	public void setSummaryVO(SummaryVO summaryVO) {
 		this.summaryVO = summaryVO;
 	}
 	/**
+	 * [getSummaryVOs]
 	 * 
 	 * @return SummaryVO[]
 	 */
@@ -51,6 +63,7 @@ public class ClvPrt0003Event extends EventSupport {
 		return summaryVOs;
 	}
 	/**
+	 * [setSummaryVOs]
 	 * 
 	 * @param summaryVOs
 	 */
@@ -58,6 +71,7 @@ public class ClvPrt0003Event extends EventSupport {
 		this.summaryVOs = summaryVOs;
 	}
 	/**
+	 * [getDetailVO]
 	 * 
 	 * @return DetailVO
 	 */
@@ -65,6 +79,7 @@ public class ClvPrt0003Event extends EventSupport {
 		return detailVO;
 	}
 	/**
+	 * [setDetailVO]
 	 * 
 	 * @param detailVO
 	 */
@@ -72,6 +87,7 @@ public class ClvPrt0003Event extends EventSupport {
 		this.detailVO = detailVO;
 	}
 	/**
+	 * [getDetailVOs]
 	 * 
 	 * @return DetailVO[]
 	 */
@@ -79,6 +95,7 @@ public class ClvPrt0003Event extends EventSupport {
 		return detailVOs;
 	}
 	/**
+	 * [setDetailVOs]
 	 * 
 	 * @param detailVOs
 	 */

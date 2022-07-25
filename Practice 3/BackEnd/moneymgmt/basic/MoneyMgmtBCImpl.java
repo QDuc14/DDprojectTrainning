@@ -22,6 +22,13 @@ import com.clt.framework.core.layer.event.EventException;
 import com.clt.framework.core.layer.integration.DAOException;
 import com.clt.framework.support.layer.basic.BasicCommandSupport;
 
+/**
+ * ALPS-moneymgmt Business Logic Command Interface<br>
+ * - Interface to business logic for ALPS-moneymgmt<br>
+ *
+ * @author duc
+ * @since J2EE 1.6
+ */
 public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC {
 	// Database Access Object
 	private transient MoneyMgmtDBDAO dbDao = null;
