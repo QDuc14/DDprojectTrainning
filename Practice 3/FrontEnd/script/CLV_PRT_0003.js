@@ -31,14 +31,9 @@ document.onclick = processButtonClick;
  * [processButtonClick] to handle button click event
  */
 function processButtonClick(){
-    /**
-	 * *** If there are more than 2 sheets per tab, you can specify additional
-	 * sheet variables to use ****
-	 */
     var sheetObject1=sheetObjects[0];
     var sheetObject2=sheetObjects[1];
     var currentSheet = getCurrentSheet();
-    /** **************************************************** */
     var formObject=document.form;
 	try {
 		var srcName=ComGetEvent("name");
@@ -52,9 +47,6 @@ function processButtonClick(){
     				ComShowCodeMessage('COM132401');
     				initCalendar();
     			}
-    			// check if any missing mandatory missing on search option
-//    			if(!searchBarCheck(formObject))
-//    				break;
        			doActionIBSheet(currentSheet,formObject,IBSEARCH);
        			break;
        		case "btn_DownExcel":
@@ -76,7 +68,6 @@ function processButtonClick(){
        			doActionIBSheet(currentSheet,formObject,IBRESET);
        			break;
        } 
-       // end switch
 	}catch(e) {
 		if( e == "[object Error]") {
 			ComShowMessage(OBJECT_ERROR);
@@ -93,8 +84,7 @@ function processButtonClick(){
  * this function is automatically called when the IBSheet Object is created by
  * the {@link CoObject#ComSheetObject} function. <br>
  * 
- * @param {ibsheet}
- *            sheet_obj IBSheet Object
+ * @param {ibsheet} sheet_obj IBSheet Object
  */
 function setSheetObject(sheet_obj){
    sheetObjects[sheetCnt++]=sheet_obj;
@@ -135,10 +125,8 @@ function loadPage() {
  * [initSheet] This function initSheet define the basic properties of the sheet
  * on the screen.
  * 
- * @param sheetObj:
- *            IBSheet Object.
- * @param sheetNo:
- *            Number of IBSheet Object.
+ * @param sheetObj: IBSheet Object.
+ * @param sheetNo: Number of IBSheet Object.
  */
 function initSheet(sheetObj,sheetNo) {
 	var cnt = 0;
@@ -228,23 +216,19 @@ function resizeSheet() {
  * {@link #processButtonClick} Call this function from a function and use it to
  * refer to IBSheet's function on a button. <br>
  * 
- * @param {ibsheet}
- *            sheetObj IBSheet Object
- * @param {form}
- *            formObj Form Object
- * @param {int}
- *            sAction Action code to process (for example, IBSEARCH, IBSAVE,
- *            IBDELETE, IBDOWNEXCEL, etc., defined in CoObject.js)
+ * @param sheetObj
+ * @param form
+ * @param sAction
  */
 function doActionIBSheet(sheetObj,formObj,sAction) {
     switch(sAction) {
-		case IBSEARCH:      // 조회
+		case IBSEARCH:     
 			
 			if (sheetObj.id == "sheet1" ) {
 				ComOpenWait(true);
 				searchSummary = getStringSearch();
 				formObj.f_cmd.value = SEARCH;
-//	 			sheetObj.DoSearch("CLV_PRT_0003GS.do", FormQueryString(formObj));\
+//	 			sheetObj.DoSearch("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				var xml = sheetObj.GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
@@ -257,7 +241,7 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
 			break;
-		case IBDOWNEXCEL:	// 엑셀다운로드
+		case IBDOWNEXCEL:
 			if(sheetObj.RowCount() < 1){
 				ComShowCodeMessage("COM132501");
 			}else{
@@ -523,8 +507,7 @@ function initTradeCombo(tradeList){
 /**
  * [setTabObject] set tab object
  * 
- * @param tab_obj :
- *            tab object
+ * @param tab_obj
  */
 function setTabObject(tab_obj) {
 	tabObjects[tabCnt++] = tab_obj;
@@ -533,8 +516,7 @@ function setTabObject(tab_obj) {
 /**
  * [initTab] initialize tab object
  * 
- * @param tab_obj :
- *            tab object
+ * @param tab_obj 
  * @param tabNo
  */
 function initTab(tabObj, tabNo) {
@@ -558,19 +540,21 @@ function tab1_OnChange(tabObj, nItem)
 {
 	var objs=document.all.item("tabLayer");
 	objs[nItem].style.display="Inline";		
-	// --------------- this is important! --------------------------//
+
 	for(var i = 0; i<objs.length; i++){
 		  if(i != nItem){
 		   objs[i].style.display="none";
 		   objs[beforetab].style.zIndex=objs[nItem].style.zIndex - 1 ;
 		  }
 		}
-	// ------------------------------------------------------//
+
 	beforetab=nItem;
 	handleTabOnchange();
     resizeSheet();
 } 
-
+/**
+ * [getCurrentSheet] get current Sheet
+ */
 function getCurrentSheet(){
 	return sheetObjects[beforetab];
 }
@@ -665,6 +649,7 @@ function getStringSearch(){
 }
 /**
  * [searchBarCheck] to check missing mandatory
+ * 
  * @param formObject
  * @returns {Boolean}
  */
