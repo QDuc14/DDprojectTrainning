@@ -1,0 +1,1 @@
+msgs["ESM0000"] = "The search condition is over 3 month.\n Do you want to continue"
