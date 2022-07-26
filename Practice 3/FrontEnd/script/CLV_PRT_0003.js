@@ -345,7 +345,7 @@ function monthCheck(formObj){
     month += dateTo.getMonth();
 	
 	if(month >= 3){
-		if(confirm("The search conditon is over 3 months.\n Do you want to continue?"))
+		if(confirm(msgs["ESM0000"]))
 			MonthNoti = false;
 		else 
 			initCalendar();
