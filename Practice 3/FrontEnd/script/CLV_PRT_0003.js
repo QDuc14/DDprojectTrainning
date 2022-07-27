@@ -28,7 +28,7 @@ var doubl = false;
 
 document.onclick = processButtonClick;
 /**
- * [processButtonClick] to handle button click event
+ * processButtonClick to handle button click event
  */
 function processButtonClick(){
     var sheetObject1=sheetObjects[0];
@@ -79,11 +79,8 @@ function processButtonClick(){
 }
 
 /**
- * [setSheetObject]Register the IBSheet Objects created on the page in the
+ * setSheetObject Register the IBSheet Objects created on the page in the
  * sheetObjects array. <br>
- * The sheetObjects array is defined at the top as a common global variable, and
- * this function is automatically called when the IBSheet Object is created by
- * the {@link CoObject#ComSheetObject} function. <br>
  * 
  * @param sheet_obj
  */
@@ -92,7 +89,7 @@ function setSheetObject(sheet_obj){
 }
 
 /**
- * [loadPage] The function called in the body.onload event adds functionality
+ * loadPage The function called in the body.onload event adds functionality
  * that needs to be pre-processed after the page finishes loading. <br>
  * Initializes various events of HTML control, IBSheet, IBTab, etc. <br>
  */
@@ -122,7 +119,7 @@ function loadPage() {
 }
 
 /**
- * [initSheet] This function initSheet define the basic properties of the sheet
+ * initSheet This function initSheet define the basic properties of the sheet
  * on the screen.
  * 
  * @param sheetObj
@@ -204,7 +201,7 @@ function initSheet(sheetObj,sheetNo) {
 }
 
 /**
- * [resizeSheet]This function resize sheet, If don't call this functions, it
+ * resizeSheet This function resize sheet, If don't call this functions, it
  * will may make UI breakable.
  */
 function resizeSheet() {
@@ -215,8 +212,6 @@ function resizeSheet() {
 
 /**
  * Handles various functions (inquiry, storage, etc.) related to IBSheet. <br>
- * {@link #processButtonClick} Call this function from a function and use it to
- * refer to IBSheet's function on a button. <br>
  * 
  * @param sheetObj
  * @param formObj
@@ -261,7 +256,7 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 }
 
 /**
- * [initCalendar] functions that define the basic properties of the Yearmonth on
+ * initCalendar functions that define the basic properties of the Yearmonth on
  * the screen
  */
 function initCalendar(){
@@ -273,7 +268,7 @@ function initCalendar(){
 }
 
 /**
- * [GetDateFormat] functions that format date by "ym"
+ * GetDateFormat functions that format date by "ym"
  * 
  * @param obj
  * @param sFormat
@@ -295,7 +290,7 @@ function GetDateFormat(obj, sFormat){
 }
 
 /**
- * [ascMonth] ascending month when click button next
+ * ascMonth ascending month when click button next
  * 
  * @param obj
  */
@@ -307,7 +302,7 @@ function ascMonth(obj){
 }
 
 /**
- * [descMonth] descending month when click button back
+ * descMonth descending month when click button back
  * 
  * @param obj
  */
@@ -318,7 +313,7 @@ function descMonth(obj){
 	obj.value = GetDateFormat(ymFrom,"ym");
 }
 /**
- * [compareDate] compare month
+ * compareDate compare month
  * 
  * @param Fm
  * @param To
@@ -331,7 +326,7 @@ function compareDate(Fm, To){
 }
 
 /**
- * [monthCheck] check when search option is over 3 year
+ * monthCheck check when search option is over 3 year
  * 
  * @param formObj
  */
@@ -354,7 +349,7 @@ function monthCheck(formObj){
 }
 
 /**
- * [initCombo] functions that define the basic properties of the combobox
+ * initCombo functions that define the basic properties of the combobox
  * 
  * @param comboObj
  * @param comboNo
@@ -376,7 +371,7 @@ function initCombo(comboObj, comboNo) {
 }
 
 /**
- * [addComboItem] functions that add data to the combobox
+ * addComboItem functions that add data to the combobox
  * 
  * @param comboObj
  * @param comboItems
@@ -395,7 +390,7 @@ function addComboItem(comboObj, comboItems) {
 }
 
 /**
- * [setComboObject] to put combo objects in global variable "ComboObjects"
+ * setComboObject to put combo objects in global variable "ComboObjects"
  * 
  * @param combo_obj
  */
@@ -403,7 +398,7 @@ function setComboObject(combo_obj) {
 	comboObjects[comboCnt++] = combo_obj;
 }
 /**
- * [s_jo_crr_cd_OnChange] handle event after select a partner combo box item
+ * s_jo_crr_cd_OnChange handle event after select a partner combo box item
  * 
  * @param OldText
  * @param OldIndex
@@ -448,7 +443,7 @@ function s_jo_crr_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, New
 	}
 }
 /**
- * [s_rlane_cd_OnChange] handle event after select a lane combo box item
+ * s_rlane_cd_OnChange handle event after select a lane combo box item
  * 
  * @param OldText
  * @param OldIndex
@@ -468,7 +463,7 @@ function s_rlane_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, NewC
 	}
 }
 /**
- * [initLaneCombo] initialize lane combo box
+ * initLaneCombo initialize lane combo box
  * 
  * @param laneList
  */
@@ -483,7 +478,7 @@ function initLaneCombo(laneList){
 	addComboItem(comboObjects[1], comboItems);
 }
 /**
- * [initTradeCombo] initialize trade combop box
+ * initTradeCombo initialize trade combop box
  * 
  * @param tradeList
  */
@@ -499,20 +494,18 @@ function initTradeCombo(tradeList){
 }
 
 /**
- * [setTabObject] set tab object
+ * setTabObject set tab object
  * 
- * @param tab_obj :
- *            tab object
+ * @param tab_obj : tab object
  */
 function setTabObject(tab_obj) {
 	tabObjects[tabCnt++] = tab_obj;
 }
 
 /**
- * [initTab] initialize tab object
+ * initTab initialize tab object
  * 
- * @param tab_obj :
- *            tab object
+ * @param tab_obj :tab object
  * @param tabNo
  */
 function initTab(tabObj, tabNo) {
@@ -527,7 +520,7 @@ function initTab(tabObj, tabNo) {
 	}
 }
 /**
- * [tab1_OnChange] change tab
+ * tab1_OnChange change tab
  * 
  * @param tabObj
  * @param nItem
@@ -551,7 +544,7 @@ function getCurrentSheet(){
 	return sheetObjects[beforetab];
 }
 /**
- * [handleTabOnchange] handle event after change tab
+ * handleTabOnchange handle event after change tab
  */
 function handleTabOnchange(){
 	if(firstLoad){
@@ -580,7 +573,7 @@ function handleTabOnchange(){
 }
 
 /**
- * [sheet1_OnDblClick] event fired when user double click any row on sheet 1
+ * sheet1_OnDblClick event fired when user double click any row on sheet 1
  * 
  * @param sheetObj
  * @param Row
@@ -600,7 +593,7 @@ function sheet1_OnDblClick(sheetObj, Row, Col) {
 }
 
 /**
- * [getSelectRow] select data row in orther tab
+ * getSelectRow select data row in orther tab
  * 
  * @param sheetObj
  * @param Row
@@ -626,7 +619,7 @@ function getSelectRow(sheetObj, Row, Col){
 }
 
 /**
- * [getStringSearch] get current search option
+ * getStringSearch get current search option
  * 
  * @returns searchOptionString
  */
@@ -638,7 +631,7 @@ function getStringSearch(){
 	return searchOptionString;
 }
 /**
- * [searchBarCheck] to check missing mandatory
+ * searchBarCheck to check missing mandatory
  * @param formObject
  * @returns {Boolean}
  */
@@ -656,7 +649,7 @@ function searchBarCheck(formObject){
 }
 
 /**
- * [sheet1_OnSearchEnd] handle event after search on sheet 1
+ * sheet1_OnSearchEnd handle event after search on sheet 1
  * 
  * @param sheetObj
  * @param Code
@@ -672,7 +665,7 @@ function sheet1_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) {
 	ComOpenWait(false);
  }
 /**
- * [sheet1_OnSearchEnd] handle event after search on sheet 2
+ * sheet1_OnSearchEnd handle event after search on sheet 2
  * 
  * @param sheetObj
  * @param Code

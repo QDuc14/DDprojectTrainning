@@ -34,60 +34,60 @@ public class ClvPrt0003Event extends EventSupport {
 	DetailVO detailVO = null;
 	DetailVO[] detailVOs = null;
 	/**
-	 * [ClvPrt0003Event] generation
+	 * ClvPrt0003Event generation
 	 */
 	public ClvPrt0003Event() {}
 	/**
-	 * 
+	 * getSummaryVO
 	 * @return SummaryVO
 	 */
 	public SummaryVO getSummaryVO() {
 		return summaryVO;
 	}
 	/**
-	 * 
+	 * setSummaryVO
 	 * @param summaryVO
 	 */
 	public void setSummaryVO(SummaryVO summaryVO) {
 		this.summaryVO = summaryVO;
 	}
 	/**
-	 * 
+	 * getSummaryVOs
 	 * @return SummaryVO[]
 	 */
 	public SummaryVO[] getSummaryVOs() {
 		return summaryVOs;
 	}
 	/**
-	 * 
+	 * setSummaryVOs
 	 * @param summaryVOs
 	 */
 	public void setSummaryVOs(SummaryVO[] summaryVOs) {
 		this.summaryVOs = summaryVOs;
 	}
 	/**
-	 * 
+	 * getDetailVO
 	 * @return DetailVO
 	 */
 	public DetailVO getDetailVO() {
 		return detailVO;
 	}
 	/**
-	 * 
+	 * setDetailVO
 	 * @param detailVO
 	 */
 	public void setDetailVO(DetailVO detailVO) {
 		this.detailVO = detailVO;
 	}
 	/**
-	 * 
+	 * getDetailVOs
 	 * @return DetailVO[]
 	 */
 	public DetailVO[] getDetailVOs() {
 		return detailVOs;
 	}
 	/**
-	 * 
+	 * setDetailVOs
 	 * @param detailVOs
 	 */
 	public void setDetailVOs(DetailVO[] detailVOs) {

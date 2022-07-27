@@ -18,11 +18,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-
-
-
-
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.component.message.ErrorHandler;
@@ -43,7 +38,7 @@ import com.clt.framework.support.layer.integration.DBDAOSupport;
 public class MoneyMgmtDBDAO extends DBDAOSupport {
 
 	/**
-	 * [searchMoneySummaryMgmt] to retrieve data
+	 * searchMoneySummaryMgmt to retrieve data
 	 * @param summaryVO
 	 * @return List<SummaryVO>
 	 * @throws DAOException
@@ -86,7 +81,7 @@ public class MoneyMgmtDBDAO extends DBDAOSupport {
 	}
 	
 	/**
-	 * [searchMoneyDetailMgmt] to retrieve data
+	 * searchMoneyDetailMgmt to retrieve data
 	 * @param summaryVO
 	 * @return List<DetailVO>
 	 * @throws DAOException
@@ -130,7 +125,7 @@ public class MoneyMgmtDBDAO extends DBDAOSupport {
 		return list;
 	}
 	/**
-	 * [partnerCombo] to get data for combo box
+	 * partnerCombo to get data for combo box
 	 * @return List<SummaryVO>
 	 * @throws DAOException
 	 */
@@ -156,7 +151,7 @@ public class MoneyMgmtDBDAO extends DBDAOSupport {
 		return list;
 	}
 	/**
-	 * [laneCombo] to get data for combo box
+	 * laneCombo to get data for combo box
 	 * @param summaryVO
 	 * @return List<SummaryVO>
 	 * @throws DAOException
@@ -200,7 +195,7 @@ public class MoneyMgmtDBDAO extends DBDAOSupport {
 		return list;
 	}
 	/**
-	 * [tradeCombo] to get data for combo box
+	 * tradeCombo to get data for combo box
 	 * @param summaryVO
 	 * @return
 	 * @throws DAOException

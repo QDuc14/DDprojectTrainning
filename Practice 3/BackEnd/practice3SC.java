@@ -91,7 +91,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * [searchMoneySummaryMgmt] to get data for summary sheet
+	 * searchMoneySummaryMgmt to get data for summary sheet
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -113,7 +113,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * [searchMoneyDetailMgmt] to get data for detail sheet
+	 * searchMoneyDetailMgmt to get data for detail sheet
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -135,7 +135,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * [initCombo] to initialize data for partner combo
+	 * initCombo to initialize data for partner combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -167,7 +167,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * [laneCombo] to get data for lane combo
+	 * laneCombo to get data for lane combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -199,7 +199,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * [tradeCombo] to get data for trade combo
+	 * tradeCombo to get data for trade combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException

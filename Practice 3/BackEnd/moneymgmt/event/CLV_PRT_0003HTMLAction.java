@@ -13,14 +13,7 @@
 package com.clt.apps.opus.esm.clv.practice3.moneymgmt.event;
 
 import javax.servlet.http.HttpServletRequest;
-
-
-
-
-
-
 import weblogic.jspc;
-
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.component.util.JSPUtil;
@@ -43,7 +36,7 @@ public class CLV_PRT_0003HTMLAction extends HTMLActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	/**
-	 * [CLV_PRT_0003HTMLAction] generation
+	 * CLV_PRT_0003HTMLAction generation
 	 */
 	public CLV_PRT_0003HTMLAction() {}
 	/**

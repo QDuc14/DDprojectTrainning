@@ -32,15 +32,15 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 	// Database Access Object
 	private transient MoneyMgmtDBDAO dbDao = null;
 	/**
-	 * [MoneyMgmtBCImpl] creating object<br>
-	 * [MoneyMgmtDBDAO] Generates.<br>
+	 * MoneyMgmtBCImpl creating object<br>
+	 * MoneyMgmtDBDAO Generates.<br>
 	 */
 	public MoneyMgmtBCImpl(){
 		dbDao = new MoneyMgmtDBDAO();
 	}
 	
 	/**
-	 * [searchMoneySummaryMgmt] to retrieve data
+	 * searchMoneySummaryMgmt to retrieve data
 	 * @param summaryVO
 	 * @return List<SummaryVO>
 	 * @throws EventException
@@ -56,7 +56,7 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * [searchMoneyDetailMgmt] to retrieve data
+	 * searchMoneyDetailMgmt to retrieve data
 	 * @param detailVO
 	 * @return List<DetailVO>
 	 * @throws EventException
@@ -72,7 +72,7 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * [partnerCombo] to get data for combo box
+	 * partnerCombo to get data for combo box
 	 * @return List<SummaryVO>
 	 * @throws EventException
 	 */
@@ -86,7 +86,7 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		}
 	}
 	/**
-	 * [laneCombo] to get data for combo box
+	 * laneCombo to get data for combo box
 	 * @param summaryVO
 	 * @return List<SummaryVO>
 	 * @throws EventException
@@ -102,7 +102,7 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * [tradeCombo] to get data for combo box
+	 * tradeCombo to get data for combo box
 	 * @param summaryVO
 	 * @return
 	 * @throws EventException
@@ -111,10 +111,8 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		try {
 			return dbDao.tradeCombo(summaryVO);
 		} catch (DAOException ex) {
-			// TODO: handle exception
 			throw new EventException(new ErrorHandler(ex).getMessage());
 		} catch (Exception ex) {
-			// TODO: handle exception
 			throw new EventException(new ErrorHandler(ex).getMessage());
 		}
 	}
