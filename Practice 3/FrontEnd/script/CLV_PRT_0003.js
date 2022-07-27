@@ -37,33 +37,36 @@ function processButtonClick(){
     var formObject=document.form;
 	try {
 		var srcName=ComGetEvent("name");
-       switch(srcName) {
+       	switch(srcName) {
        		case "btn_Retrieve":
        			if (MonthNoti)
        				monthCheck(formObject);
-       			var Fm = formObject.fm_acct_yrmon.value;
-    			var To = formObject.to_acct_yrmon.value;
-    			
        			doActionIBSheet(currentSheet,formObject,IBSEARCH);
        			break;
        		case "btn_DownExcel":
        			doActionIBSheet(currentSheet,formObject,IBDOWNEXCEL);
        			break;
        		case "btn_vvd_from_next":
+				var Fm = formObject.fm_acct_yrmon.value;
+    			var To = formObject.to_acct_yrmon.value;
        			if (!compareDate(Fm, To)){
     				ComShowCodeMessage('COM132002');
     				break;
     			}
-       			ascMonth(formObject.fm_acct_yrmon);
+       			// ascMonth(formObject.fm_acct_yrmon);
+				changeMonth(formObject.fm_acct_yrmon, 1);
        			break;
        		case "btn_vvd_from_back":
-       			descMonth(formObject.fm_acct_yrmon);
+       			// descMonth(formObject.fm_acct_yrmon);
+				changeMonth(formObject.fm_acct_yrmon, -1);
        			break;
        		case "btn_vvd_to_next":
-       			ascMonth(formObject.to_acct_yrmon);
+       			// ascMonth(formObject.to_acct_yrmon);
+				changeMonth(formObject.fm_acct_yrmon, 1);
        			break;
        		case "btn_vvd_to_back":
        			descMonth(formObject.to_acct_yrmon);
+				changeMonth(formObject.fm_acct_yrmon, -1);
        			break;
        		case "btn_New":
        			doActionIBSheet(currentSheet,formObject,IBRESET);
@@ -79,8 +82,7 @@ function processButtonClick(){
 }
 
 /**
- * setSheetObject Register the IBSheet Objects created on the page in the
- * sheetObjects array. <br>
+ * setSheetObject Register the IBSheet Objects created on the page in thesheetObjects array. <br>
  * 
  * @param sheet_obj
  */
@@ -89,8 +91,7 @@ function setSheetObject(sheet_obj){
 }
 
 /**
- * loadPage The function called in the body.onload event adds functionality
- * that needs to be pre-processed after the page finishes loading. <br>
+ * loadPage The function called in the body.onload event adds functionality that needs to be pre-processed after the page finishes loading. <br>
  * Initializes various events of HTML control, IBSheet, IBTab, etc. <br>
  */
 function loadPage() {
@@ -119,8 +120,7 @@ function loadPage() {
 }
 
 /**
- * initSheet This function initSheet define the basic properties of the sheet
- * on the screen.
+ * initSheet This function initSheet define the basic properties of the sheet on the screen.
  * 
  * @param sheetObj
  * @param sheetNo
@@ -155,7 +155,6 @@ function initSheet(sheetObj,sheetNo) {
 	       	             ];
 	            InitColumns(cols);
 				SetEditable(1);
-				SetAutoSumPosition(1);
 				SetWaitImageVisible(0);
 				ShowSubSum([{StdCol:"inv_no" , SumCols:"7|8",ShowCumulate:0,CaptionText:"",CaptionCol:3}]);
 				resizeSheet(); 
@@ -190,7 +189,6 @@ function initSheet(sheetObj,sheetNo) {
 		       	             ];
 		            InitColumns(cols);
 					SetEditable(1);
-					SetAutoSumPosition(1);
 					SetWaitImageVisible(0);
 					SetSheetHeight(500);
 					ShowSubSum([{StdCol:"inv_no" , SumCols:"9|10",ShowCumulate:0,CaptionText:"",CaptionCol:3}]);
@@ -201,8 +199,7 @@ function initSheet(sheetObj,sheetNo) {
 }
 
 /**
- * resizeSheet This function resize sheet, If don't call this functions, it
- * will may make UI breakable.
+ * resizeSheet This function resize sheet, If don't call this functions, it will may make UI breakable.
  */
 function resizeSheet() {
 	for (var i = 0; i < sheetObjects.length; i++) {
@@ -256,8 +253,7 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 }
 
 /**
- * initCalendar functions that define the basic properties of the Yearmonth on
- * the screen
+ * initCalendar functions that define the basic properties of the Yearmonth on the screen
  */
 function initCalendar(){
 	var formObj = document.form;
@@ -287,6 +283,23 @@ function GetDateFormat(obj, sFormat){
 	}
 	retValue = ComGetMaskedValue(retValue,sFormat);
 	return retValue;
+}
+
+function changeMonth(obj, k){
+	switch(k){
+		case "1":
+			sheetObjects[0].RemoveAll();
+			sheetObjects[1].RemoveAll();
+			var ymFrom = ComGetDateAdd(obj.value + "-01","M",1);
+			obj.value = GetDateFormat(ymFrom,"ym");
+			break;
+		case "-1":
+			sheetObjects[0].RemoveAll();
+			sheetObjects[1].RemoveAll();
+			var ymFrom = ComGetDateAdd(obj.value + "-01","M",-1);
+			obj.value = GetDateFormat(ymFrom,"ym");
+			break;
+	}
 }
 
 /**
@@ -331,21 +344,31 @@ function compareDate(Fm, To){
  * @param formObj
  */
 function monthCheck(formObj){
-	var month;
-	var dateFm = new Date(formObj.fm_acct_yrmon.value);
-	var dateTo = new Date(formObj.to_acct_yrmon.value);
+	// var month;
+	// var dateFm = new Date(formObj.fm_acct_yrmon.value);
+	// var dateTo = new Date(formObj.to_acct_yrmon.value);
 	
-	month = (dateTo.getFullYear() - dateFm.getFullYear()) * 12;
-    month -= dateFm.getMonth();
-    month += dateTo.getMonth();
+	// month = (dateTo.getFullYear() - dateFm.getFullYear()) * 12;
+    // month -= dateFm.getMonth();
+    // month += dateTo.getMonth();
 	
-	if(month >= 3){
+	// if(month >= 3){
+	// 	if(ComShowCodeConfirm("ESM0000"))
+	// 		MonthNoti = false;
+	// 	else 
+	// 		initCalendar();
+	// }
+	
+	var formObj = document.form;
+    var fromDate = formObj.fm_acct_yrmon.value.replaceStr("-", "") + "01";
+    var toDate = formObj.to_acct_yrmon.value.replaceStr("-", "") + "01";
+
+    if(ComGetDaysBetween(fromDate, toDate) > 88){
 		if(ComShowCodeConfirm("ESM0000"))
 			MonthNoti = false;
 		else 
 			initCalendar();
 	}
-		
 }
 
 /**
@@ -539,7 +562,10 @@ function tab1_OnChange(tabObj, nItem)
 	handleTabOnchange();
     resizeSheet();
 } 
-
+/**
+ * get current sheet
+ * @returns sheetObj
+ */
 function getCurrentSheet(){
 	return sheetObjects[beforetab];
 }
@@ -681,7 +707,10 @@ function sheet1_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) {
  	highlight(sheetObj);
  	ComOpenWait(false);
  }
- 
+ /**
+  * highlight the totalsum
+  * @param sheetObj 
+  */
  function highlight(sheetObj){
 	 var totalRow = sheetObj.RowCount();
 	 for (var i = 1; i <= totalRow+1; i++){
