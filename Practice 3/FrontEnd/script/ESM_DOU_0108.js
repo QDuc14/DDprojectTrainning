@@ -1,10 +1,14 @@
 /*=========================================================
-*Copyright(c) 2022 CyberLogitec. All Rights Reserved.
-*@FileName   : CLV_PRT_0003.js
-*@FileTitle  : Money Management
-*@author     : ducquach
-*@version    : 1.0
-*@since      : 2022/07/05
+*Copyright(c) 2022 CyberLogitec
+*@FileName : ESM_DOU_0108.js
+*@FileTitle : Error Messsage Management
+*Open Issues :
+*Change history :
+*@LastModifyDate : 2022.07.21
+*@LastModifier : 
+*@LastVersion : 1.0
+* 2022.06.07 
+* 1.0 Creation
 =========================================================*/
 
 
@@ -49,24 +53,26 @@ function processButtonClick(){
        		case "btn_vvd_from_next":
 				var Fm = formObject.fm_acct_yrmon.value;
     			var To = formObject.to_acct_yrmon.value;
-       			if (!compareDate(Fm, To)){
+       			if (compareDate(Fm, To)){
     				ComShowCodeMessage('COM132002');
     				break;
     			}
-       			// ascMonth(formObject.fm_acct_yrmon);
 				changeMonth(formObject.fm_acct_yrmon, 1);
        			break;
        		case "btn_vvd_from_back":
-       			// descMonth(formObject.fm_acct_yrmon);
 				changeMonth(formObject.fm_acct_yrmon, -1);
        			break;
        		case "btn_vvd_to_next":
-       			// ascMonth(formObject.to_acct_yrmon);
-				changeMonth(formObject.fm_acct_yrmon, 1);
+				changeMonth(formObject.to_acct_yrmon, 1);
        			break;
        		case "btn_vvd_to_back":
-       			// descMonth(formObject.to_acct_yrmon);
-				changeMonth(formObject.fm_acct_yrmon, -1);
+       			var Fm = formObject.fm_acct_yrmon.value;
+    			var To = formObject.to_acct_yrmon.value;
+       			if (compareDate(Fm, To)){
+    				ComShowCodeMessage('COM132002');
+    				break;
+    			}
+				changeMonth(formObject.to_acct_yrmon, -1);
        			break;
        		case "btn_New":
        			doActionIBSheet(currentSheet,formObject,IBRESET);
@@ -142,16 +148,16 @@ function initSheet(sheetObj,sheetNo) {
 	            
 	            var cols = [ 
 	       	             { Type: "Status", Hidden: 1, Width: 50,  Align: "Center",   ColMerge: 0, SaveName: "ibflag" },
-	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "jo_crr_cd",       KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "rlane_cd",        KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-	       	             { Type: "Text",   Hidden: 0, Width: 150, Align: "Center",   ColMerge: 0, SaveName: "inv_no",          KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-	       	             { Type: "Text",   Hidden: 0, Width: 200, Align: "Center",   ColMerge: 0, SaveName: "csr_no",          KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "apro_flg",        KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	             { Type: "Float",  Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	          	 { Type: "Float",  Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}
+	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "jo_crr_cd",       KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "rlane_cd",        KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+	       	             { Type: "Text",   Hidden: 0, Width: 150, Align: "Center",   ColMerge: 0, SaveName: "inv_no",          KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+	       	             { Type: "Text",   Hidden: 0, Width: 200, Align: "Center",   ColMerge: 0, SaveName: "csr_no",          KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "apro_flg",        KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	             { Type: "Float",  Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	          	 { Type: "Float",  Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}
 	       	             ];
 	            InitColumns(cols);
 				SetEditable(1);
@@ -174,18 +180,18 @@ function initSheet(sheetObj,sheetNo) {
 	            
 	            var cols = [ 
 		       	             { Type: "Status", Hidden: 1, Width: 50,  Align: "Center", ColMerge: 0, SaveName: "ibflag" },
-		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "jo_crr_cd",       KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "rlane_cd",        KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-		       	             { Type: "Text",   Hidden: 0, Width: 150, Align: "Center", ColMerge: 0, SaveName: "inv_no",          KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-		       	             { Type: "Text",   Hidden: 0, Width: 200, Align: "Center", ColMerge: 0, SaveName: "csr_no",          KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
-		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "apro_flg",        KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	             { Type: "Combo",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "rev_exp",         KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0, ComboText: "Rev|Exp", ComboCode: "R|E"},
-		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "item",        	 KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	             { Type: "Float",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	          	 { Type: "Float",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}
+		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "jo_crr_cd",       KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "rlane_cd",        KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+		       	             { Type: "Text",   Hidden: 0, Width: 150, Align: "Center", ColMerge: 0, SaveName: "inv_no",          KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+		       	             { Type: "Text",   Hidden: 0, Width: 200, Align: "Center", ColMerge: 0, SaveName: "csr_no",          KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
+		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "apro_flg",        KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	             { Type: "Combo",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "rev_exp",         KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0, ComboText: "Rev|Exp", ComboCode: "R|E"},
+		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "item",        	 KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	             { Type: "Float",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	          	 { Type: "Float",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 0, Format: "", UpdateEdit: 0, InsertEdit: 0}
 		       	             ];
 		            InitColumns(cols);
 					SetEditable(1);
@@ -221,14 +227,14 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 				ComOpenWait(true);
 				searchSummary = getStringSearch();
 				formObj.f_cmd.value = SEARCH;
-				var xml = sheetObj.GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
+				var xml = sheetObj.GetSearchData("ESM_DOU_0108GS.do", FormQueryString(formObj));
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
 			else if (sheetObj.id == "sheet2"){
 				ComOpenWait(true);
 				searchDetail = getStringSearch();
 				formObj.f_cmd.value = SEARCH01;
-				var xml = sheetObj.GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
+				var xml = sheetObj.GetSearchData("ESM_DOU_0108GS.do", FormQueryString(formObj));
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
 			break;
@@ -291,30 +297,6 @@ function changeMonth(obj, k){
 			var ymFrom = ComGetDateAdd(obj.value + "-01","M",k);
 			obj.value = GetDateFormat(ymFrom,"ym");
 }
-
-/**
- * ascMonth ascending month when click button next
- * 
- * @param obj
- */
-function ascMonth(obj){
-	sheetObjects[0].RemoveAll();
-	sheetObjects[1].RemoveAll();
-	var ymFrom = ComGetDateAdd(obj.value + "-01","M",1);
-	obj.value = GetDateFormat(ymFrom,"ym");
-}
-
-/**
- * descMonth descending month when click button back
- * 
- * @param obj
- */
-function descMonth(obj){
-	sheetObjects[0].RemoveAll();
-	sheetObjects[1].RemoveAll();
-	var ymFrom = ComGetDateAdd(obj.value + "-01","M",-1);
-	obj.value = GetDateFormat(ymFrom,"ym");
-}
 /**
  * compareDate compare month
  * 
@@ -323,9 +305,14 @@ function descMonth(obj){
  * @returns {Boolean}
  */
 function compareDate(Fm, To){
-	var dateFm = new Date(Fm);
-	var dateTo = new Date(To);
-	return Fm < To;
+	var formObj = document.form;
+    var fromDate = formObj.fm_acct_yrmon.value.replaceStr("-", "") + "01";
+    var toDate = formObj.to_acct_yrmon.value.replaceStr("-", "") + "01";
+    console.log(ComGetDaysBetween(fromDate, toDate));
+    if( ComGetDaysBetween(fromDate, toDate) > 28){
+    	return false;
+    }
+    return true;
 }
 
 /**
@@ -334,21 +321,6 @@ function compareDate(Fm, To){
  * @param formObj
  */
 function monthCheck(formObj){
-	// var month;
-	// var dateFm = new Date(formObj.fm_acct_yrmon.value);
-	// var dateTo = new Date(formObj.to_acct_yrmon.value);
-	
-	// month = (dateTo.getFullYear() - dateFm.getFullYear()) * 12;
-    // month -= dateFm.getMonth();
-    // month += dateTo.getMonth();
-	
-	// if(month >= 3){
-	// 	if(ComShowCodeConfirm("ESM0000"))
-	// 		MonthNoti = false;
-	// 	else 
-	// 		initCalendar();
-	// }
-	
 	var formObj = document.form;
     var fromDate = formObj.fm_acct_yrmon.value.replaceStr("-", "") + "01";
     var toDate = formObj.to_acct_yrmon.value.replaceStr("-", "") + "01";
@@ -447,7 +419,7 @@ function s_jo_crr_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, New
 	
 	var formObj = document.form;
 	formObj.f_cmd.value = SEARCH02;
-	var xml = sheetObjects[0].GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
+	var xml = sheetObjects[0].GetSearchData("ESM_DOU_0108GS.do", FormQueryString(formObj));
 	var laneList = ComGetEtcData(xml, "lane");
 	if(formObj.s_jo_crr_cd.value != "ALL"){
 		s_rlane_cd.SetEnable(true);
@@ -467,7 +439,7 @@ function s_jo_crr_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, New
 function s_rlane_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, NewCode) {
 	var formObj = document.form;
 	formObj.f_cmd.value = SEARCH03;
-	var xml = sheetObjects[0].GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
+	var xml = sheetObjects[0].GetSearchData("ESM_DOU_0108GS.do", FormQueryString(formObj));
 	var tradeList = ComGetEtcData(xml, "trade");
 	if(formObj.s_rlane_cd.value != ''){
 		s_trd_cd.SetEnable(true);

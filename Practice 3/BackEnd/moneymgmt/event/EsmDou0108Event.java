@@ -1,6 +1,6 @@
 /*=========================================================
  *Copyright(c) 2022 CyberLogitec
- *@FileName : ClvPrt0003Event.java
+ *@FileName : EsmDou0108Event.java
  *@FileTitle : Money Management
  *Open Issues :
  *Change history :
@@ -16,15 +16,15 @@ import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.support.layer.event.EventSupport;
 /**
- * CLV_PRT_0003HTMLAction for PDTO(Data Transfer Object including Parameters)<br>
- * - Created from CLV_PRT_0003HTMLAction<br>
+ * ESM_DOU_0108HTMLAction for PDTO(Data Transfer Object including Parameters)<br>
+ * - Created from ESM_DOU_0108HTMLAction<br>
  * - Used as PDTO delivered to ServiceCommand Layer<br>
  *
  * @author duc
- * @see CLV_PRT_0003HTMLAction refer
+ * @see ESM_DOU_0108HTMLAction refer
  * @since J2EE 1.6
  */
-public class ClvPrt0003Event extends EventSupport {
+public class EsmDou0108Event extends EventSupport {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -34,9 +34,9 @@ public class ClvPrt0003Event extends EventSupport {
 	DetailVO detailVO = null;
 	DetailVO[] detailVOs = null;
 	/**
-	 * ClvPrt0003Event generation
+	 * EsmDou0108Event generation
 	 */
-	public ClvPrt0003Event() {}
+	public EsmDou0108Event() {}
 	/**
 	 * getSummaryVO
 	 * @return SummaryVO

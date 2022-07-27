@@ -1,7 +1,7 @@
 <%
 /*=========================================================
 *Copyright(c) 2022 CyberLogitec
-*@FileName : CLV_PRT_0003.jsp
+*@FileName : ESM_DOU_0108.jsp
 *@FileTitle : 
 *Open Issues :
 *Change history :
@@ -20,11 +20,11 @@
 <%@ page import="com.clt.framework.core.layer.event.GeneralEventResponse"%>
 <%@ page import="com.clt.framework.support.controller.html.CommonWebKeys"%>
 <%@ page import="com.clt.framework.support.view.signon.SignOnUserAccount"%>
-<%@ page import="com.clt.apps.opus.esm.clv.practice3.moneymgmt.event.ClvPrt0003Event"%>
+<%@ page import="com.clt.apps.opus.esm.clv.practice3.moneymgmt.event.EsmDou0108Event"%>
 <%@ page import="org.apache.log4j.Logger" %>
 
 <%
-	ClvPrt0003Event  event = null;				
+	EsmDou0108Event  event = null;				
 	Exception serverException   = null;			
 	String strErrMsg = "";				
 	int rowCount	 = 0;						
@@ -33,7 +33,7 @@
 	String pageRows  = "100";
 	String partners = "";
 	try {
-		event = (ClvPrt0003Event)request.getAttribute("Event");
+		event = (EsmDou0108Event)request.getAttribute("Event");
 		serverException = (Exception)request.getAttribute(CommonWebKeys.EXCEPTION_OBJECT);
 		if (serverException != null) {
 			strErrMsg = new ErrorHandler(serverException).loadPopupMessage();

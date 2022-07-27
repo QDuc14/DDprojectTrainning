@@ -16,7 +16,7 @@ import java.util.List;
 
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.basic.MoneyMgmtBC;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.basic.MoneyMgmtBCImpl;
-import com.clt.apps.opus.esm.clv.practice3.moneymgmt.event.ClvPrt0003Event;
+import com.clt.apps.opus.esm.clv.practice3.moneymgmt.event.EsmDou0108Event;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.component.message.ErrorHandler;
@@ -73,7 +73,7 @@ public class practice3SC extends ServiceCommandSupport {
 		EventResponse eventResponse = null;
 
 		// SC가 여러 이벤트를 처리하는 경우 사용해야 할 부분
-		if (e.getEventName().equalsIgnoreCase("ClvPrt0003Event")) {
+		if (e.getEventName().equalsIgnoreCase("EsmDou0108Event")) {
 			if (e.getFormCommand().isCommand(FormCommand.SEARCH)) {
 				eventResponse = searchMoneySummaryMgmt(e);
 			} else if(e.getFormCommand().isCommand(FormCommand.DEFAULT)){
@@ -91,7 +91,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * searchMoneySummaryMgmt to get data for summary sheet
+	 * [searchMoneySummaryMgmt] to get data for summary sheet
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -99,7 +99,7 @@ public class practice3SC extends ServiceCommandSupport {
 	private EventResponse searchMoneySummaryMgmt(Event e) throws EventException {
 		// PDTO(Data Transfer Object including Parameters)
 		GeneralEventResponse eventResponse =  new GeneralEventResponse();
-		ClvPrt0003Event event = (ClvPrt0003Event)e;
+		EsmDou0108Event event = (EsmDou0108Event)e;
 		MoneyMgmtBC command = new MoneyMgmtBCImpl();
 
 		try{
@@ -113,7 +113,7 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * searchMoneyDetailMgmt to get data for detail sheet
+	 * [searchMoneyDetailMgmt] to get data for detail sheet
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
@@ -121,7 +121,7 @@ public class practice3SC extends ServiceCommandSupport {
 	private EventResponse searchMoneyDetailMgmt(Event e) throws EventException {
 		// PDTO(Data Transfer Object including Parameters)
 		GeneralEventResponse eventResponse = new GeneralEventResponse();
-		ClvPrt0003Event event = (ClvPrt0003Event)e;
+		EsmDou0108Event event = (EsmDou0108Event)e;
 		MoneyMgmtBC command = new MoneyMgmtBCImpl();
 
 		try{
@@ -135,14 +135,14 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * initCombo to initialize data for partner combo
+	 * [initCombo] to initialize data for partner combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
 	 */
 	private EventResponse initCombo(Event e) throws EventException{
 		GeneralEventResponse eventResponse = new GeneralEventResponse();
-		ClvPrt0003Event event = (ClvPrt0003Event) e;
+		EsmDou0108Event event = (EsmDou0108Event) e;
 		MoneyMgmtBC command = new MoneyMgmtBCImpl();
 		try {
 			List<SummaryVO> list = command.partnerCombo();
@@ -167,14 +167,14 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * laneCombo to get data for lane combo
+	 * [laneCombo] to get data for lane combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
 	 */
 	private EventResponse laneCombo(Event e) throws EventException{
 		GeneralEventResponse eventResponse = new GeneralEventResponse();
-		ClvPrt0003Event event = (ClvPrt0003Event) e;
+		EsmDou0108Event event = (EsmDou0108Event) e;
 		MoneyMgmtBC command = new MoneyMgmtBCImpl();
 		try {
 			List<SummaryVO> list = command.laneCombo(event.getSummaryVO());
@@ -199,14 +199,14 @@ public class practice3SC extends ServiceCommandSupport {
 		return eventResponse;
 	}
 	/**
-	 * tradeCombo to get data for trade combo
+	 * [tradeCombo] to get data for trade combo
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
 	 */
 	private EventResponse tradeCombo(Event e) throws EventException{
 		GeneralEventResponse eventResponse = new GeneralEventResponse();
-		ClvPrt0003Event event = (ClvPrt0003Event) e;
+		EsmDou0108Event event = (EsmDou0108Event) e;
 		MoneyMgmtBC command = new MoneyMgmtBCImpl();
 		try {
 			List<SummaryVO> list = command.tradeCombo(event.getSummaryVO());

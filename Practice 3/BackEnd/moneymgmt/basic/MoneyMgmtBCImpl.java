@@ -40,9 +40,9 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 	}
 	
 	/**
-	 * searchMoneySummaryMgmt to retrieve data
+	 * Searching Summary data method
 	 * @param summaryVO
-	 * @return List<SummaryVO>
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> searchMoneySummaryMgmt(SummaryVO summaryVO) throws EventException {
@@ -56,9 +56,9 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * searchMoneyDetailMgmt to retrieve data
-	 * @param detailVO
-	 * @return List<DetailVO>
+	 * Searching Details data
+	 * @param searchDetailVO
+	 * @return
 	 * @throws EventException
 	 */
 	public List<DetailVO> searchMoneyDetailMgmt(DetailVO detailVO) throws EventException {
@@ -72,8 +72,9 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * partnerCombo to get data for combo box
-	 * @return List<SummaryVO>
+	 * Getting Partner combo
+	 * @param summaryVO
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> partnerCombo() throws EventException{
@@ -86,9 +87,9 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		}
 	}
 	/**
-	 * laneCombo to get data for combo box
+	 * Getting Lane combo
 	 * @param summaryVO
-	 * @return List<SummaryVO>
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> laneCombo(SummaryVO summaryVO) throws EventException{
@@ -102,7 +103,7 @@ public class MoneyMgmtBCImpl extends BasicCommandSupport implements MoneyMgmtBC 
 		
 	}
 	/**
-	 * tradeCombo to get data for combo box
+	 * getting Trade combo
 	 * @param summaryVO
 	 * @return
 	 * @throws EventException

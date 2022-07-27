@@ -1,6 +1,6 @@
 /*=========================================================
  *Copyright(c) 2022 CyberLogitec
- *@FileName : CLV_PRT_0003HTMLAction.java
+ *@FileName : ESM_DOU_0108HTMLAction.java
  *@FileTitle : Money Management
  *Open Issues :
  *Change history :
@@ -13,13 +13,12 @@
 package com.clt.apps.opus.esm.clv.practice3.moneymgmt.event;
 
 import javax.servlet.http.HttpServletRequest;
-import weblogic.jspc;
+
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.DetailVO;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.vo.SummaryVO;
 import com.clt.framework.component.util.JSPUtil;
 import com.clt.framework.core.controller.html.HTMLActionException;
 import com.clt.framework.core.layer.event.Event;
-import com.clt.framework.core.layer.event.EventException;
 import com.clt.framework.core.layer.event.EventResponse;
 import com.clt.framework.support.controller.HTMLActionSupport;
 import com.clt.framework.support.controller.html.FormCommand;
@@ -32,16 +31,16 @@ import com.clt.framework.support.controller.html.FormCommand;
  * @see moneymgmtEvent 참조
  * @since J2EE 1.6
  */
-public class CLV_PRT_0003HTMLAction extends HTMLActionSupport{
+public class ESM_DOU_0108HTMLAction extends HTMLActionSupport{
 
 	private static final long serialVersionUID = 1L;
 	/**
-	 * CLV_PRT_0003HTMLAction generation
+	 * ESM_DOU_0108HTMLAction generation
 	 */
-	public CLV_PRT_0003HTMLAction() {}
+	public ESM_DOU_0108HTMLAction() {}
 	/**
 	 * Parsing the HTML DOM object's value as a java variable
-	 * parsing the information of HttpRequest as ClvPrt0003Event and setting it in request
+	 * parsing the information of HttpRequest as EsmDou0108Event and setting it in request
 	 * @param request
 	 * @return Event
 	 * @throws HTMLActionException
@@ -49,7 +48,7 @@ public class CLV_PRT_0003HTMLAction extends HTMLActionSupport{
 	@Override
 	public Event perform(HttpServletRequest request) throws HTMLActionException {
 		FormCommand command = FormCommand.fromRequest(request);
-		ClvPrt0003Event event = new ClvPrt0003Event();
+		EsmDou0108Event event = new EsmDou0108Event();
 		
 		if(command.isCommand(FormCommand.SEARCH)) {
 			SummaryVO summaryVO = new SummaryVO();

@@ -26,36 +26,37 @@ import com.clt.framework.core.layer.event.EventException;
  */
 public interface MoneyMgmtBC {
 	/**
-	 * searchMoneySummaryMgmt to retrieve data
+	 * Searching Summary data method
 	 * @param summaryVO
-	 * @return List<SummaryVO>
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> searchMoneySummaryMgmt(SummaryVO summaryVO) throws EventException;
 	/**
-	 * searchMoneyDetailMgmt to retrieve data
-	 * @param detailVO
-	 * @return List<DetailVO>
+	 * Searching Details data
+	 * @param searchDetailVO
+	 * @return
 	 * @throws EventException
 	 */
 	public List<DetailVO> searchMoneyDetailMgmt(DetailVO detailVO) throws EventException;
 	/**
-	 * partnerCombo to get data for combo box
-	 * @return List<SummaryVO>
+	 * Getting Partner combo
+	 * @param summaryVO
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> partnerCombo() throws EventException;
 	/**
-	 * laneCombo to get data for combo box
+	 * Getting Lane combo
 	 * @param summaryVO
-	 * @return List<SummaryVO>
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> laneCombo(SummaryVO summaryVO) throws EventException;
 	/**
-	 * tradeCombo to get data for combo box
+	 * getting Trade combo
 	 * @param summaryVO
-	 * @return List<SummaryVO>
+	 * @return
 	 * @throws EventException
 	 */
 	public List<SummaryVO> tradeCombo(SummaryVO summaryVO) throws EventException;
