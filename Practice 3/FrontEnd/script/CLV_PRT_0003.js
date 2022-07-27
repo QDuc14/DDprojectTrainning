@@ -384,7 +384,6 @@ function initCombo(comboObj, comboNo) {
 		with (comboObj) {
 			SetMultiSelect(1);
 	        SetDropHeight(250);
-	        ValidChar(2,1);
 		}
 		// partner from ETCDATA and split "|"
 		var comboItems = partnerList.split("|");
