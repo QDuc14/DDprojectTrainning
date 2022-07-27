@@ -65,7 +65,7 @@ function processButtonClick(){
 				changeMonth(formObject.fm_acct_yrmon, 1);
        			break;
        		case "btn_vvd_to_back":
-       			descMonth(formObject.to_acct_yrmon);
+       			// descMonth(formObject.to_acct_yrmon);
 				changeMonth(formObject.fm_acct_yrmon, -1);
        			break;
        		case "btn_New":
