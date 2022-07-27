@@ -21,7 +21,6 @@ import com.clt.framework.component.message.ErrorHandler;
 import com.clt.framework.core.layer.event.EventException;
 import com.clt.framework.core.layer.integration.DAOException;
 import com.clt.framework.support.layer.basic.BasicCommandSupport;
-
 /**
  * ALPS-moneymgmt Business Logic Command Interface<br>
  * - Interface to business logic for ALPS-moneymgmt<br>

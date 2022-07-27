@@ -43,16 +43,17 @@ function processButtonClick(){
        				monthCheck(formObject);
        			var Fm = formObject.fm_acct_yrmon.value;
     			var To = formObject.to_acct_yrmon.value;
-    			if (!compareDate(Fm, To)){
-    				ComShowCodeMessage('COM132401');
-    				initCalendar();
-    			}
+    			
        			doActionIBSheet(currentSheet,formObject,IBSEARCH);
        			break;
        		case "btn_DownExcel":
        			doActionIBSheet(currentSheet,formObject,IBDOWNEXCEL);
        			break;
        		case "btn_vvd_from_next":
+       			if (!compareDate(Fm, To)){
+    				ComShowCodeMessage('COM132002');
+    				break;
+    			}
        			ascMonth(formObject.fm_acct_yrmon);
        			break;
        		case "btn_vvd_from_back":
@@ -84,7 +85,7 @@ function processButtonClick(){
  * this function is automatically called when the IBSheet Object is created by
  * the {@link CoObject#ComSheetObject} function. <br>
  * 
- * @param {ibsheet} sheet_obj IBSheet Object
+ * @param sheet_obj
  */
 function setSheetObject(sheet_obj){
    sheetObjects[sheetCnt++]=sheet_obj;
@@ -118,15 +119,14 @@ function loadPage() {
 	initCalendar();
 	
 	doActionIBSheet(sheetObjects[0],document.form,IBSEARCH);
-//	doActionIBSheet(sheetObjects[1],document.form,IBSEARCH);
 }
 
 /**
  * [initSheet] This function initSheet define the basic properties of the sheet
  * on the screen.
  * 
- * @param sheetObj: IBSheet Object.
- * @param sheetNo: Number of IBSheet Object.
+ * @param sheetObj
+ * @param sheetNo
  */
 function initSheet(sheetObj,sheetNo) {
 	var cnt = 0;
@@ -151,8 +151,8 @@ function initSheet(sheetObj,sheetNo) {
 	       	             { Type: "Text",   Hidden: 0, Width: 200, Align: "Center",   ColMerge: 0, SaveName: "csr_no",          KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}, 
 	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "apro_flg",        KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	             { Type: "Float",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
+	       	          	 { Type: "Float",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 	       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center",   ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}
 	       	             ];
@@ -160,6 +160,7 @@ function initSheet(sheetObj,sheetNo) {
 				SetEditable(1);
 				SetAutoSumPosition(1);
 				SetWaitImageVisible(0);
+				ShowSubSum([{StdCol:"inv_no" , SumCols:"7|8",ShowCumulate:0,CaptionText:"",CaptionCol:3}]);
 				resizeSheet(); 
 			}
 			break;
@@ -185,8 +186,8 @@ function initSheet(sheetObj,sheetNo) {
 		       	             { Type: "Combo",  Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "rev_exp",         KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0, ComboText: "Rev|Exp", ComboCode: "R|E"},
 		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "item",        	 KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "locl_curr_cd",    KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	             { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
-		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	             { Type: "Float",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_rev_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
+		       	          	 { Type: "Float",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "inv_exp_act_amt", KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "prnr_ref_no",     KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0},
 		       	          	 { Type: "Text",   Hidden: 0, Width: 100, Align: "Center", ColMerge: 0, SaveName: "cust_vndr_eng_nm",KeyField: 1, Format: "", UpdateEdit: 0, InsertEdit: 0}
 		       	             ];
@@ -195,6 +196,7 @@ function initSheet(sheetObj,sheetNo) {
 					SetAutoSumPosition(1);
 					SetWaitImageVisible(0);
 					SetSheetHeight(500);
+					ShowSubSum([{StdCol:"inv_no" , SumCols:"9|10",ShowCumulate:0,CaptionText:"",CaptionCol:3}]);
 					resizeSheet();
 			}
 			break;
@@ -217,18 +219,16 @@ function resizeSheet() {
  * refer to IBSheet's function on a button. <br>
  * 
  * @param sheetObj
- * @param form
+ * @param formObj
  * @param sAction
  */
 function doActionIBSheet(sheetObj,formObj,sAction) {
     switch(sAction) {
-		case IBSEARCH:     
-			
+		case IBSEARCH:      
 			if (sheetObj.id == "sheet1" ) {
 				ComOpenWait(true);
 				searchSummary = getStringSearch();
 				formObj.f_cmd.value = SEARCH;
-//	 			sheetObj.DoSearch("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				var xml = sheetObj.GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
@@ -236,12 +236,11 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 				ComOpenWait(true);
 				searchDetail = getStringSearch();
 				formObj.f_cmd.value = SEARCH01;
-//				sheetObj.DoSearch("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				var xml = sheetObj.GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
 				sheetObj.LoadSearchData(xml,{Sync:1});
 			}
 			break;
-		case IBDOWNEXCEL:
+		case IBDOWNEXCEL:	
 			if(sheetObj.RowCount() < 1){
 				ComShowCodeMessage("COM132501");
 			}else{
@@ -250,11 +249,12 @@ function doActionIBSheet(sheetObj,formObj,sAction) {
 			break;
 		case IBRESET:
 			formObj.reset();
-			sheetObj.RemoveAll();
+			for (var i = 0; i < sheetObjects.length; i++) {
+				sheetObjects[i].RemoveAll();
+			}
 			initCalendar();
 			s_jo_crr_cd.SetItemCheck(0, 1, 1);
 			doActionIBSheet(sheetObjects[0],document.form,IBSEARCH);
-//			doActionIBSheet(sheetObjects[1],document.form,IBSEARCH);
 			tab1.SetSelectedIndex(0);
 			break;
     }
@@ -345,7 +345,7 @@ function monthCheck(formObj){
     month += dateTo.getMonth();
 	
 	if(month >= 3){
-		if(confirm(msgs["ESM0000"]))
+		if(ComShowCodeConfirm("ESM0000"))
 			MonthNoti = false;
 		else 
 			initCalendar();
@@ -413,9 +413,6 @@ function setComboObject(combo_obj) {
  * @param NewCode
  */
 function s_jo_crr_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, NewCode) {
-	// handling events when user checks all item partner's combo
-	console.log(OldIndex);
-	console.log(NewIndex);
 	if (OldIndex == 0) {
 		s_jo_crr_cd.SetItemCheck(0, 0, 0);
 	}
@@ -444,9 +441,7 @@ function s_jo_crr_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, New
 	var formObj = document.form;
 	formObj.f_cmd.value = SEARCH02;
 	var xml = sheetObjects[0].GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
-	console.log(xml);
 	var laneList = ComGetEtcData(xml, "lane");
-	console.log(laneList);
 	if(formObj.s_jo_crr_cd.value != "ALL"){
 		s_rlane_cd.SetEnable(true);
 		initLaneCombo(laneList);
@@ -467,7 +462,6 @@ function s_rlane_cd_OnChange(OldText, OldIndex, OldCode, NewText, NewIndex, NewC
 	formObj.f_cmd.value = SEARCH03;
 	var xml = sheetObjects[0].GetSearchData("CLV_PRT_0003GS.do", FormQueryString(formObj));
 	var tradeList = ComGetEtcData(xml, "trade");
-	console.log(tradeList);
 	if(formObj.s_rlane_cd.value != ''){
 		s_trd_cd.SetEnable(true);
 		initTradeCombo(tradeList);
@@ -507,7 +501,8 @@ function initTradeCombo(tradeList){
 /**
  * [setTabObject] set tab object
  * 
- * @param tab_obj
+ * @param tab_obj :
+ *            tab object
  */
 function setTabObject(tab_obj) {
 	tabObjects[tabCnt++] = tab_obj;
@@ -516,7 +511,8 @@ function setTabObject(tab_obj) {
 /**
  * [initTab] initialize tab object
  * 
- * @param tab_obj 
+ * @param tab_obj :
+ *            tab object
  * @param tabNo
  */
 function initTab(tabObj, tabNo) {
@@ -540,21 +536,17 @@ function tab1_OnChange(tabObj, nItem)
 {
 	var objs=document.all.item("tabLayer");
 	objs[nItem].style.display="Inline";		
-
 	for(var i = 0; i<objs.length; i++){
 		  if(i != nItem){
 		   objs[i].style.display="none";
 		   objs[beforetab].style.zIndex=objs[nItem].style.zIndex - 1 ;
 		  }
 		}
-
 	beforetab=nItem;
 	handleTabOnchange();
     resizeSheet();
 } 
-/**
- * [getCurrentSheet] get current Sheet
- */
+
 function getCurrentSheet(){
 	return sheetObjects[beforetab];
 }
@@ -569,7 +561,7 @@ function handleTabOnchange(){
 	var currentSheet = getCurrentSheet();
 	var formQuery = getStringSearch();
 	if(searchSummary!=formQuery && searchDetail!=formQuery && !doubl){
-		if(confirm(msgs['COM130504'])){
+		if(ComShowCodeConfirm("COM130504")){
 			doActionIBSheet(currentSheet, document.form, IBSEARCH)
 		}else{
 			return;
@@ -577,13 +569,11 @@ function handleTabOnchange(){
 	}
 	if(currentSheet.id=="sheet1"){
 		if(searchSummary!=formQuery){
-			console.log('sumaru');
 			doActionIBSheet(currentSheet, document.form, IBSEARCH)
 			
 		}
 	}else{
 		if(searchDetail!=formQuery && !doubl){
-			console.log('detaru');
 			doActionIBSheet(currentSheet, document.form, IBSEARCH)
 		}
 	}
@@ -649,7 +639,6 @@ function getStringSearch(){
 }
 /**
  * [searchBarCheck] to check missing mandatory
- * 
  * @param formObject
  * @returns {Boolean}
  */
@@ -676,23 +665,11 @@ function searchBarCheck(formObject){
  * @param StMsg
  */
 function sheet1_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) { 
-	 console.log("sheet1");
- 	ComOpenWait(false);
- 	var totalRow = sheetObj.RowCount();
-	for (var i = 1; i <= totalRow+1; i++){
-		if (sheetObj.GetCellValue(i, "jo_crr_cd") == ''){
-			if (sheetObj.GetCellValue(i, "inv_no") !== ''){
-				sheetObj.SetRowFontColor(i,"#c55a11");
-				sheetObj.SetRangeFontBold(i,1,i,10,1);
-				sheetObj.SetCellValue(i,"inv_no","");
-			}
-			else if (sheetObj.GetCellValue(i,"inv_no") == ''){
-				sheetObj.SetRowBackColor(i,"#f7caac");
-				sheetObj.SetRangeFontBold(i,1,i,10,1);
-			}
-
-		}
-	}
+	if(sheetObj.RowCount() > 0){
+		showTotalSum(sheetObj);
+ 	}
+	highlight(sheetObj);
+	ComOpenWait(false);
  }
 /**
  * [sheet1_OnSearchEnd] handle event after search on sheet 2
@@ -704,21 +681,66 @@ function sheet1_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) {
  * @param StMsg
  */
  function sheet2_OnSearchEnd(sheetObj, Code, Msg, StCode, StMsg) { 
-	 console.log("shee2");
- 	ComOpenWait(false);
  	var totalRow = sheetObj.RowCount();
-	for (var i = 1; i <= totalRow+1; i++){
-		if (sheetObj.GetCellValue(i, "jo_crr_cd") == ''){
-			if (sheetObj.GetCellValue(i, "inv_no") !== ''){
-				sheetObj.SetRowFontColor(i,"#c55a11");
-				sheetObj.SetRangeFontBold(i,1,i,10,1);
-				sheetObj.SetCellValue(i,"inv_no","");
+ 	if (sheetObj.RowCount() > 0) {
+        showTotalSum(sheetObj);
+    }
+ 	highlight(sheetObj);
+ 	ComOpenWait(false);
+ }
+ 
+ function highlight(sheetObj){
+	 var totalRow = sheetObj.RowCount();
+	 for (var i = 1; i <= totalRow+1; i++){
+			if (sheetObj.GetCellValue(i, "jo_crr_cd") == ''){
+				if (sheetObj.GetCellValue(i, "inv_no") !== ''){
+					sheetObj.SetRowFontColor(i,COLOR_FONT);
+					sheetObj.SetRangeFontBold(i,1,i,10,1);
+					sheetObj.SetCellValue(i,"inv_no","");
+				}
+				else if (sheetObj.GetCellValue(i,"inv_no") == ''){
+					sheetObj.SetRowBackColor(i,COLOR_TOTAL_SUM);
+					sheetObj.SetRangeFontBold(i,1,i,10,1);
+				}
 			}
-			else if (sheetObj.GetCellValue(i,"inv_no") == ''){
-				sheetObj.SetRowBackColor(i,"#f7caac");
-				sheetObj.SetRangeFontBold(i,1,i,10,1);
-			}
-
 		}
-	}
+ }
+ /**
+  * Function that uses to show total sum row
+  * @param sheetObj
+  */
+ function showTotalSum(sheetObj) {
+		var revTotalVND = 0;
+	    var expTotalVND = 0;
+	    var revTotalUSD = 0;
+	    var expTotalUSD = 0;
+
+	    var subsum = sheetObj.FindSubSumRow();
+	    var arrSubsum = subsum.split("|");
+
+	    for (var i = 0; i < arrSubsum.length; i++) {
+	        var locl_curr_cd = sheetObj.GetCellValue(arrSubsum[i] - 1, "locl_curr_cd");
+	        sheetObj.SetCellValue(arrSubsum[i], "locl_curr_cd", locl_curr_cd);
+	        sheetObj.SetCellFont("FontBold", arrSubsum[i], "locl_curr_cd", arrSubsum[i], "inv_exp_act_amt", 1);
+	        if (locl_curr_cd == "VND") {
+	            revTotalVND += sheetObj.GetCellValue(arrSubsum[i], "inv_rev_act_amt");
+	            expTotalVND += sheetObj.GetCellValue(arrSubsum[i], "inv_exp_act_amt");
+	        } else {
+	            revTotalUSD += sheetObj.GetCellValue(arrSubsum[i], "inv_rev_act_amt");
+	            expTotalUSD += sheetObj.GetCellValue(arrSubsum[i], "inv_exp_act_amt");
+	        }
+	    }
+	    sheetObj.DataInsert(-1);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "locl_curr_cd", "VND");
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "inv_rev_act_amt", revTotalVND);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "inv_exp_act_amt", expTotalVND);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "rev_exp", "");
+
+	    sheetObj.DataInsert(-1);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "locl_curr_cd", "USD");
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "inv_rev_act_amt", revTotalUSD);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "inv_exp_act_amt", expTotalUSD);
+	    sheetObj.SetCellValue(sheetObj.LastRow(), "rev_exp", "");
+
+	    sheetObj.SetSelectRow(-1);
  }

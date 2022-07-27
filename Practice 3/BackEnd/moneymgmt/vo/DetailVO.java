@@ -31,7 +31,7 @@ import com.clt.framework.component.util.JSPUtil;
  * Table Value Ojbect<br>
  * 관련 Event 에서 생성, 서버실행요청시 Data 전달역할을 수행하는 Value Object
  *
- * @author duc
+ * @author 
  * @since J2EE 1.6
  * @see AbstractValueObject
  */

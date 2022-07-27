@@ -13,6 +13,7 @@
 package com.clt.apps.opus.esm.clv.practice3;
 
 import java.util.List;
+
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.basic.MoneyMgmtBC;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.basic.MoneyMgmtBCImpl;
 import com.clt.apps.opus.esm.clv.practice3.moneymgmt.event.ClvPrt0003Event;
@@ -26,7 +27,6 @@ import com.clt.framework.core.layer.event.GeneralEventResponse;
 import com.clt.framework.support.controller.html.FormCommand;
 import com.clt.framework.support.layer.service.ServiceCommandSupport;
 import com.clt.framework.support.view.signon.SignOnUserAccount;
-
 /**
  * ALPS-MoneyMgmt Business Logic ServiceCommand - Process business transaction for ALPS-MoneyMgmt.
  * 
@@ -63,7 +63,6 @@ public class practice3SC extends ServiceCommandSupport {
 	/**
 	 * Carry out business scenarios for each event
 	 * branch processing of all events occurring in ALPS-MoneyMgmt system work
-	 *
 	 * @param e
 	 * @return EventResponse
 	 * @throws EventException
