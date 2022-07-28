@@ -290,7 +290,11 @@ function GetDateFormat(obj, sFormat){
 	retValue = ComGetMaskedValue(retValue,sFormat);
 	return retValue;
 }
-
+/**
+ * change month onclick
+ * @param obj 
+ * @param k 
+ */
 function changeMonth(obj, k){
 			sheetObjects[0].RemoveAll();
 			sheetObjects[1].RemoveAll();
