@@ -105,8 +105,8 @@
 						<th width="100">Create Date</th>
 						<td>
 							<input type="text" readonly style="width: 120px; text-align: center;" placeholder="YYYY-MM-DD" name="s_cre_dt_fm" id="s_cre_dt_fm"><!--  
-							--><button type="button" class="calendar ir" name="btn_dt_fr" id="btn_dt_fr"></button> to 
-							<input type="text" readonly style="width: 120px; text-align: center;" placeholder="YYYY-MM-DD" name="s_cre_dt_to" id="s_cre_dt_to" onchange="excuteCheck(this.value)"><!-- 
+							--><button type="button" class="calendar ir" name="btn_dt_fr" id="btn_dt_fr"></button> to <!--
+							--><input type="text" readonly style="width: 120px; text-align: center;" placeholder="YYYY-MM-DD" name="s_cre_dt_to" id="s_cre_dt_to" onchange="excuteCheck(this.value)"><!-- 
 							--><button type="button" class="calendar ir" name="btn_dt_to" id="btn_dt_to"></button>
 						</td>
 					</tr>
